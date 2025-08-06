@@ -1,0 +1,1126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+<html lang="zh-Hant-TW" xml:lang="zh-tw">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+<title>政府電子採購網</title>
+<link rel="icon" href="/tps/images/icon.gif">
+
+<!--練習區滑鼠跟隨游標CSS設定及是否「練習區」-->
+
+
+<!--練習區滑鼠跟隨游標CSS設定及是否「練習區」-->
+
+<style>
+input:focus {
+    color: #495057;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+textarea:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+select:focus-visible {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+</style>
+
+<link href="/tps/css/all.css" rel="stylesheet" type="text/css"/>
+
+<link href="/tps/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="/tps/css/v2/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+<link href="/tps/css/tab_menu.css" rel="stylesheet" type="text/css"/>
+<link href="/tps/css/tab.css" rel="stylesheet" type="text/css"/>
+
+
+
+<script src="/tps/js/calendar.js" type="text/javascript"></script><!--日期-->
+<script src="/tps/js/jquery-3.5.0.min.js" type="text/javascript"></script><!--函式庫-->
+<script src="/tps/js/tab.js" type="text/javascript"></script><!--頁簽-->
+<script src="/tps/js/jquery.blockUI.js" type="text/javascript"></script>
+<script src="/tps/js/menu.js" type="text/javascript"></script><!--下拉選單-->
+<script src="/tps/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/tps/js/additional-methods.js" type="text/javascript"></script>
+
+
+
+</head>
+<body style="background:#ddd5b8">
+<!-- 	<img alt="練習區" src="images/exercise.gif" id="im" style="position: absolute; z-index: 10000; margin-left: 10px;"> -->
+	<!--TOP-->
+
+
+<style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+</style>
+	<!--TOP-->
+	<div class="top">
+		<div class="top_a">
+			<div class="top_a_cen">
+				<div class="top_a_l">
+					<ul><!--上方內容導盲磚-->
+
+
+
+								<li><a href="#content" tabindex="5" class="sr-only sr-only-focusable"><span style="color:#FFFFFF;background-color:#81b1c9;margin-right:5px;Opacity:80;">中央內容區塊</span></a></li>
+						        <!--上方內容導盲磚-->
+						        <li><a href="#U" id="AU" name="U" title="上方功能區塊" class="guide" accesskey="U" tabindex="0">:::</a></li>
+								<li><a  href="/pis/" title="回首頁">回首頁</a></li>
+								<li><a  href="/qdcs/webmobile/Home" title="行動版">行動版</a></li>
+								<li><a  href="/pis/prac/sitemapClient/readG3Sitemap" title="網站導覽">網站導覽</a></li>
+								<li><a  href="/tps/QueryTender/query/queryEng?mode=" title="ENGLISH">ENGLISH</a></li>
+								<li><a  href="/pis/pia/client/mail" title="意見信箱">意見信箱</a></li>
+
+
+					</ul>
+				</div>
+
+
+
+						<div class="top_a_r">
+							<div class="top_a_r_1">
+								<img src="/tps/images/r_btn1.png" alt="前往正式區的按鈕">
+							</div>
+							<div class="top_a_r_2">
+								<a href="https://webtest.pcc.gov.tw/pis/" title="前往練習區的按鈕">
+				                 <img src="/tps/images/r_btn2.png" alt="前往練習區的按鈕">
+								</a>
+							</div>
+						</div>
+
+
+			</div>
+		</div>
+
+	<div class="top_b">
+		<h1>政府電子採購網</h1>
+	</div>
+
+
+	<div id="timeoutQuestionDiv" style="display: none; cursor: default">
+	    <div class="cen4">
+	        <div class="t_cen" id="timeoutQuestion"><!--文字要置中就用這-->
+
+	        </div>
+	        <div class="bt_cen1">
+	            <a  href="javascript:void(0);" id="timeoutQuestionYes" title="確定">確定</a>
+	            <a  href="javascript:void(0);" id="timeoutQuestionNo" title="取消">取消</a>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="timeoutLogoutDiv" style="display: none; cursor: default">
+	    <div class="cen4">
+	        <div class="t_cen" id="timeoutLogoutText"><!--文字要置中就用這-->
+
+	        </div>
+	        <div class="bt_cen1">
+	            <a  href="javascript:void(0);" id="timeoutLogoutYes" title="確定">確定</a>
+	        </div>
+	    </div>
+	</div>
+
+<script type="text/javascript">
+
+
+	$(document).ready(function() {
+		//呼叫廣告
+		advertListCache();
+
+		//未進行網頁切換倒數計時器
+		setInterval("pisCountTime()", 1000);
+
+	});
+
+	//呼叫廣告
+	function advertListCache() {
+		$.ajax({
+			type : 'POST',
+			url : '/pis/srml/advertClient/getClientAdvertMap',
+			data : "{}",
+			dataType : "json",
+			contentType : "application/json",
+			success : function(dataList) {
+				showAdvertImage(dataList);
+			}
+		})
+	}
+
+	//組成廣告html
+	function showAdvertImage(dataList) {
+
+		for ( var i in dataList) {
+			var data = dataList[i];
+
+			var htmlString = "<div>";
+			htmlString += "<a href='"+data.linkUrl+"' title='"+data.title+"(另開視窗)' rel='noopener noreferrer' target='_blank'>";
+			htmlString += "<img alt='另開視窗' src='/pis/srml/advertClient/getAdvertImage?id="
+					+ data.pkPisAdvert + "' alt='" + data.imgDesc
+					+ "' width='220' height='82.72' style='margin-bottom:11px;border:1px;'>";
+			htmlString += "</a>";
+			htmlString += "</div>";
+
+			$("#advertList").append(htmlString);
+		}
+	}
+
+	// SSO Timeout Check Start
+	var timeOutSec = 1800;	// timeout 時間
+	var remindSec = 300; // 提醒user時間
+	var countDown = timeOutSec;
+	function pisCountTime() {
+		if (countDown >= 1) {
+			countDown--;
+			var iMin = Math.floor(countDown/60);
+			var iSec = countDown % 60;
+
+			document.getElementById('countDownSecond').innerHTML = iMin +  " 分" + iSec + " 秒";
+			if (countDown == remindSec) {
+				pisRemindBlock();
+			}
+		} else{
+			if(countDown == 0)
+				pisRemindLogout();
+			countDown--;
+		}
+	}
+
+	function pisSetTime() {
+		setLoginBreadcrumbs();
+		countDown = timeOutSec;
+	}
+
+	function pisRemindBlock() {
+		var confirmMessage = "您只剩" + (remindSec / 60) + "分鐘作業時間，您要延長作業時間嗎？";
+
+		$("#timeoutQuestion").text(confirmMessage);
+		$.blockUI({
+			message : $('#timeoutQuestionDiv')
+		});
+		$('#timeoutQuestionYes').click(function() {
+			pisSetTime();
+			$.unblockUI();
+		});
+		$('#timeoutQuestionNo').click(function() {
+			$.unblockUI();
+		});
+	}
+
+	function pisRemindLogout() {
+		var confirmMessage = "網頁已超過30分鐘未作業，請重新登入";
+		$('#timeoutQuestionNo').click();
+
+		$("#timeoutLogoutText").text(confirmMessage);
+		$.blockUI({
+			message : $('#timeoutLogoutDiv')
+		});
+		$('#timeoutLogoutYes').click(function() {
+			window.location = '/tps/sso/logout';
+			$.unblockUI();
+		});
+	}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="top_c">
+			<ul>
+				<li class="top_cb"><a  href="/pis/personal" title="個人化首頁">個人化首頁</a></li>
+				<li><a  href="/csci/pf/readCsciFaqDetlList" title="常見問題">常見問題</a></li>
+				<li><a  href="/pis/pia/client/mail" title="聯絡我們">聯絡我們</a></li>
+				<li><a  href="/pis" title="回系統首頁">回系統首頁</a></li>
+				<li><a  href="http://223.200.228.2/epvas/" title="我的加值服務">我的加值服務</a></li>
+				<!-- 環境檢測 -->
+
+
+			</ul>
+		</div>
+
+
+
+	<!--TOPEND-->
+
+	<!--middle-->
+
+	<div class="middle_1">
+		<div class="middle_1_cen">
+
+			<!--中間內容導盲磚-->
+			<!--主要左邊欄位-->
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src='/ccs/dist/geps3-commons.bundle.js'></script>
+<script type="text/javascript" charset="UTF-8">
+	//for 共用元件
+	Geps3.CommonConfig.context = '/tps';
+
+	var chkFunc = 0;
+	var chkLevel = 1;
+	var chkUrl = '';
+
+	String.format = function() {
+		if (arguments.length == 0)
+			return null;
+		var str = arguments[0];
+		for (var i = 1; i < arguments.length; i++) {
+			var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+			str = str.replace(re, arguments[i]);
+		}
+		return str;
+	};
+
+	// 左邊補0
+	function padLeft(num, lenght) {
+		var str = String(num);
+		if (str.length >= lenght)
+			return str;
+		else
+			return padLeft("0" + str, lenght);
+	}
+
+	function showCns(elm, value) {
+		var allStrAry = [];
+		while(checkIsCNS(value)) {
+			let hwTagIdxBegin = value.indexOf('<page>');
+			let hwTagIdxEnd = value.indexOf('</code>');
+
+			let normalStr = value.substring(0, hwTagIdxBegin);
+			allStrAry.push(normalStr);
+
+			let hwTagStr = value.substring(hwTagIdxBegin, hwTagIdxEnd+7);
+			allStrAry.push(hwTagStr);
+
+			value = value.substring(hwTagIdxEnd+7);
+		}
+		if (value.length > 0) {
+			allStrAry.push(value);
+		}
+
+		$(elm).empty();
+		allStrAry.forEach(function(item){
+			if (checkIsCNS(item)) {
+				var rawVal = $("<textarea></textarea>").html(item).text(); // escapeXml還原
+				var showStr = Geps3.CNS.pageCode2Img(rawVal);
+				$(elm).append($("<span></span>").html(showStr));
+			}
+			else {
+				$(elm).append($("<span></span>").text(item));
+			}
+		});
+
+	}
+
+	function checkIsCNS(defVal) {
+		var expCNS = new RegExp(
+				'(?:&lt;|<)\\s*page\\s*(?:&gt;|>)\\s*([0-9a-f]{1,2})\\s*(?:&lt;|<)\\s*\/\\s*page\\s*(?:&gt;|>)\\s*(?:&lt;|<)\\s*code\\s*(?:&gt;|>)\\s*([0-9a-f]{1,4})\\s*(?:&lt;|<)\\s*\/\\s*code\\s*(?:&gt;|>)');
+
+		if (expCNS.test(defVal)) {
+			return true;
+		}
+
+		return false;
+	}
+
+	var isFavorite = false;
+	function getNowDate() {
+
+		var tmpWord = "{0}年{1}月{2}日 {3}:{4}:{5}";
+		var n = new Date();
+		var Y = n.getFullYear() - 1911;
+		var M = n.getMonth() + 1;
+		var D = n.getDate();
+		var h = n.getHours();
+		var m = n.getMinutes();
+		var s = n.getSeconds();
+		var nowDate = String.format(tmpWord, Y, padLeft(M, 2), padLeft(D, 2), padLeft(h, 2), padLeft(m,
+				2), padLeft(s, 2));
+		$("#nowDate").html(nowDate);
+		setTimeout('getNowDate()', 1000);
+	}
+
+	$(document).ready(function() {
+		getNowDate();
+
+
+
+
+
+		setLoginBreadcrumbs();
+		setSimulating();
+		setSubstituteing();
+		setLoginBreadcrumbsUrl();
+
+
+		$(".pbShowCnsStyle").each(function() {
+		    showCns($(this), $(this).text());
+		});
+
+		$(".showCnsStyle").each(function() {
+		    showCns($(this), $(this).text());
+		});
+	});
+
+	//點menu
+	function onMenuClick(funcPk, level, url) {
+
+		if (level == 0) {
+			// 切換項目就不是我的最愛
+			isFavorite = funcPk == 3000000466 ? true : false;
+		}
+
+		// 若只是要收起來就不往下跑了
+		var isopen = $("#__F" + funcPk).attr('style');
+		if (isopen == 'display: block') {
+			if (level > 0) {
+				$("#__F" + funcPk).attr('style', 'display: none'); // 隱藏表單
+			}
+			return;
+		}
+
+		// 點選非我的最愛選單時，移除我的最愛選單元素
+		if (!isFavorite) {
+			$("li#love").remove();
+		}
+
+		// 設定menu path
+		var menuUrl = "/tps/menu/setMenuPath/" + funcPk;
+		$.ajax({
+			type : 'GET',
+			url : menuUrl,
+			contentType : 'application/json; charset=utf-8',
+			dataType : 'json',
+			success : function(data, result) {
+				if (url != null) {
+					location.href = url;
+				} else {
+					// 取menu路徑
+					for (i = 0; i < data.length; i++) {
+						if (i >= level) {
+							openMenu(data[i], i, isFavorite);
+						}
+					}
+				}
+			},
+			error : function() {
+				console.error('onMenuClick error ' + funcPk + ' ' + level + ' '
+						+ url);
+				//alert('error');
+			}
+		});
+	}
+
+	//展開 menu
+	function openMenu(funcPk, level, isFavorite) {
+
+		if (funcPk == null || level == null) {
+			return;
+		}
+
+		var menuUrl = "/tps/menu/open/" + funcPk;
+		if (isFavorite == true) {
+			if (level == 0) {
+				menuUrl = "/tps/menu/readFavorite/" + 0;
+			} else {
+				menuUrl = "/tps/menu/readFavorite/" + funcPk;
+			}
+		}
+
+		$.ajax({
+			type : 'GET',
+			url : menuUrl,
+			contentType : 'application/json; charset=utf-8',
+			dataType : 'json',
+			success : function(data, result) {
+				if (result == "success") {
+					createMenu(funcPk, level, data, isFavorite);
+				} else {
+					alert('fail: ' + data.responseMsg.message);
+				}
+			},
+			error : function() {
+				console.error('openMenu error ' + funcPk + ' ' + level);
+			}
+		});
+	}
+
+	// 產生menu
+	function createMenu(funcPk, level, data, isFavorite) {
+		var menuHtml = "";
+		var nextLevel = level + 1;
+
+		switch (level) {
+			case 1 :
+				// 顯示第三層
+				$.each(data, function(idx, func) {
+					menuHtml += isFavorite == true ? "<li id='love'>" : "<li>";
+					if (func.initUrl == null) {
+						// 有下層選單
+						menuHtml += "<a href='javascript: void(0)' class='xuan' onClick='onMenuClick("
+								+ func.pkRaamFunc
+								+ ", "
+								+ nextLevel
+								+ ",null);'><img src='/tps/images/menu_arr2.png' alt='提醒有次選單的按鈕'>"
+								+ func.funcName + "</a>";
+						menuHtml += "<ul class='for' id='__F" + func.pkRaamFunc+"'></ul>";
+					} else {
+						// 無下層選單
+						var clickHtml = '"' + func.initUrl + '"';
+						if (chkFunc == func.pkRaamFunc) {
+							chkLevel = nextLevel;
+							chkUrl = func.initUrl;
+						}
+
+						if(func.initUrl.startsWith('javascript:')) {
+							menuHtml += "<a href='" + func.initUrl + "' class='xuan' title='提醒無次選單的按鈕'><img src='/tps/images/menu_arr.png' alt='提醒無次選單的按鈕'>"
+								+ func.funcName
+								+ "</a><div class='clear'></div>";
+						} else {
+							menuHtml += "<a href='javascript: void(0)' class='xuan' onClick='onMenuClick("
+									+ func.pkRaamFunc
+									+ ", "
+									+ nextLevel
+									+ ","
+									+ clickHtml
+									+ ")'><img src='/tps/images/menu_arr.png' alt='提醒無次選單的按鈕'>"
+									+ func.funcName
+									+ "</a><div class='clear'></div>";
+						}
+
+					}
+					menuHtml += "</li>";
+				});
+				break;
+			case 2 :
+				// 顯示第四層
+				$.each(data, function(idx, func) {
+					var clickHtml = '"' + func.initUrl + '"';
+					if (chkFunc == func.pkRaamFunc) {
+						chkLevel = nextLevel;
+						chkUrl = func.initUrl;
+					}
+					menuHtml += isFavorite == true ? "<li id='love'>" : "<li>";
+					if(func.initUrl.startsWith('javascript:')) {
+						menuHtml += "<a href='" + func.initUrl + "' title='提醒無次選單的按鈕'><img src='/tps/images/menu_arr.png' alt='提醒無次選單的按鈕'>"
+							+ func.funcName + "</a>";
+					} else {
+						menuHtml += "<a href='javascript: void(0)' onClick='onMenuClick("
+							+ func.pkRaamFunc
+							+ ", "
+							+ nextLevel
+							+ ","
+							+ clickHtml
+							+ ");'><img src='/tps/images/menu_arr.png' alt='提醒無次選單的按鈕'>"
+							+ func.funcName + "</a>";
+					}
+
+					menuHtml += "</li>";
+				});
+				menuHtml += "<div class='clear'></div>";
+				break;
+			default :
+				// 顯示第二層
+				$.each(data, function(idx, func) {
+					menuHtml += isFavorite == true ? "<li class='e_li' id='love'>" : "<li class='e_li'>";
+					if (func.initUrl == null) {
+						// 有下層選單
+						menuHtml += "<a href='javascript: void(0)' class='sen_x' onClick='onMenuClick("
+								+ func.pkRaamFunc
+								+ ", "
+								+ nextLevel
+								+ ",null);'><img src='/tps/images/menu_arr2.png' alt='提醒有次選單的按鈕'>"
+								+ func.funcName + "</a>";
+						menuHtml += "<ul class='thr' id='__F"+func.pkRaamFunc+"'></ul>";
+					} else {
+						var clickHtml = '"' + func.initUrl + '"';
+						if (chkFunc == func.pkRaamFunc) {
+							chkLevel = nextLevel;
+							chkUrl = func.initUrl;
+						}
+
+						if(func.initUrl.startsWith('javascript:')) {
+							menuHtml += "<a href='" + func.initUrl + "' class='sen_x' title='提醒無次選單的按鈕'><img src='/tps/images/menu_arr.png' alt='提醒無次選單的按鈕'>"
+								+ func.funcName
+								+ "</a><div class='clear'></div>";
+						} else {
+							// 無下層選單
+							menuHtml += "<a href='javascript: void(0)' class='sen_x' onClick='onMenuClick("
+								+ func.pkRaamFunc
+								+ ", "
+								+ nextLevel
+								+ ","
+								+ clickHtml
+								+ ");'><img src='/tps/images/menu_arr.png' alt='提醒無次選單的按鈕'>"
+								+ func.funcName
+								+ "</a><div class='clear'></div>";
+						}
+
+					}
+					menuHtml += "</li>";
+				});
+		}
+
+		if ($("#__F" + funcPk).length > 0) {
+			$("#__F" + funcPk).html(menuHtml);
+			$("#__F" + funcPk).show(); //顯示表單
+		}
+	}
+
+	//設定麵包屑
+	function setLoginBreadcrumbs() {
+		$("#loginBreadcrumbs").html(""); // 設定 layout.jsp 裡的麵包屑 div
+
+		//取得 func path
+		var funcUrl = "/tps/menu/readFuncPath";
+		$.ajax({
+			url : funcUrl,
+			type : "GET",
+		}).done(function(content) {
+			if(!Array.isArray(content)) {
+				return;
+			}
+
+			var divHtml = "";
+			for (i = 0; i < content.length; i++) {
+				if (divHtml != "") {
+					divHtml += " > ";
+				}
+				if (i == content.length -1 && chkFunc > 0) {
+					divHtml += "<span id='span"+chkFunc+"' class='t-link' style='cursor: pointer;'>" + content[i] + "</span>";
+				}
+				else {
+					divHtml += content[i];
+				}
+			}
+			$("#loginBreadcrumbs").html(divHtml);
+		}).fail(function(jqXHR, textStatus) {
+			console.error('readFuncPath error ' + textStatus);
+		});
+	}
+
+	// 設定麵包屑url
+	function setLoginBreadcrumbsUrl() {
+		if (chkFunc > 0) {
+			var chkSpan = "#span"+chkFunc;
+			const wait_until_element_appear = setInterval(function () {
+			    if ($(chkSpan).length !== 0) {
+				$(chkSpan).bind("click", function() {
+						onMenuClick(chkFunc, chkLevel, chkUrl);
+					});
+			        clearInterval(wait_until_element_appear);
+			    }
+			}, 500);
+		}
+	}
+
+	// 是否前往綁定憑證
+	function askUseCert(yesOrNo) {
+		if ("Y" == yesOrNo) {
+
+
+
+
+
+
+
+
+
+
+
+		}
+
+		goNextMessageBlockUI();
+	}
+
+	// 設定模擬帳號
+	function setSimulating(){
+		var divHtml ="";
+
+
+
+
+		$("#simulatingDiv").html(divHtml);
+	}
+
+	// 設定代理人
+	function setSubstituteing(){
+		var divHtml = "";
+
+
+
+
+		$("#substituteingDiv").html(divHtml);
+	}
+
+	function showAskUserCertMessage() {
+		var askUseCert = $('#askUseCertDiv');
+		showSpecificBlockUI(askUseCert);
+	}
+
+	function showNoAuthMessage() {
+		var noauth = $('#noauthDiv');
+		showSpecificBlockUI(noauth);
+	}
+
+	function showChangePswMessage() {
+		var changePsw = $('#remindChangePswDiv');
+		showSpecificBlockUI(changePsw);
+	}
+
+	var showSpecificBlockUI = function(id){
+		var __defaultW = $(window).width() / 3;
+		var __defaultH = $(window).height() / 3;
+		var __centerDlgW = __defaultW / 2;
+		var __centerDlgH = __defaultH / 2;
+		var __centerW = $(window).width() / 2;
+		var __centerH = $(window).height() / 2;
+		var __top = __centerH - __centerDlgH - 20;
+		var __left = __centerW - __centerDlgW;
+		$.blockUI({
+			message : $(id),
+			css : {
+				width : __defaultW,
+				top : __top,
+				left : __left,
+				overflow : 'auto', // 捲軸的顯示 【註1】
+				margin : 'auto',
+				padding: '24px',
+				color: 'rgb(0, 0, 0)',
+				border: '3px solid rgb(170, 170, 170)',
+				cursor: 'wait'
+			},
+			baseZ : 10000
+		});
+	};
+
+	// 前往修改密碼
+	function changePsw() {
+		location.href = "/raam/changePassword/init";
+		goNextMessageBlockUI();
+	}
+</script>
+
+<!--中間內容導盲磚-->
+<a href="#C" id="AC" name="C" title="中間功能區塊" class="guide" accesskey="C">:::</a>
+<!--主要左邊欄位-->
+<div class="middle_1_cen_small L">
+	<div class="middle_1_info">
+		<span class="pbShowCnsStyle" ></span>
+		歡迎回來
+		<br>
+		<div id="nowDate"></div>
+		<div id="simulatingDiv"></div>
+		<div id="substituteingDiv"></div>
+	</div>
+	<!--左邊下拉選單-->
+	<div class="middle_1_cen_small3">
+		<ul class="ce">
+
+		</ul>
+
+		<!-- 環境檢測 -->
+
+
+
+	</div>
+	<!--左邊下拉選單結束-->
+	<div id="advertList"></div>
+</div>
+<!--主要左邊欄位END-->
+<!--主要右邊欄位-->
+
+<div id="askUseCertDiv" style="display: none; cursor: default">
+	<div class="cen4">
+		<div class="t_cen">
+			歡迎回來！
+			<br>
+			採購網提供帳號綁定憑證之全新功能，
+			<br>
+			可使用憑證快速登入政府電子採購網，
+			<br>
+			並保留原註冊之帳號密碼登入方式，
+			<br>
+
+
+
+
+
+
+				請至「資料維護及管理>個人資料維護」查看綁定憑證功能。
+
+
+		</div>
+		<div class="bt_cen2">
+			<a  href="javascript: void(0)" onclick="askUseCert('Y')" title="立即前往">立即前往</a>
+			<a  href="javascript: void(0)" onclick="askUseCert('N')" title="關閉">關閉</a>
+		</div>
+	</div>
+</div>
+
+<div id="noauthDiv" style="display: none; cursor: default">
+	<div class="cen4">
+		<div class="t_cen">
+			您好，您目前登入之帳號係屬已裁撤機關之帳號，本帳號之權限自起限制只有『代收費用申請』、『資料移轉』、『領標資訊查詢』、『查詢劃帳資料』、『尚未請款紀錄』、『個人相關帳號查詢』及『我的密碼修改』計7個功能，無新機關帳號者，請儘速申請。
+		</div>
+		<div class="bt_cen2">
+			<a  href="javascript: void(0)" onclick="goNextMessageBlockUI();" title="關閉">關閉</a>
+		</div>
+	</div>
+</div>
+
+<div id="remindChangePswDiv" style="display: none; cursor: default">
+	<div class="cen4">
+		<div class="title_1">密碼逾期通知</div>
+		<div class="t_cen">
+			您的密碼已超過90天沒有變更，為維護您的帳號安全性，建議您立即變更密碼
+		</div>
+		<div class="bt_cen2">
+			<a  href="javascript: void(0)" onclick="changePsw()" title="立即變更密碼">立即變更密碼</a>
+			<a  href="javascript: void(0)" onclick="goNextMessageBlockUI();" title="稍後變更密碼">稍後變更密碼</a>
+		</div>
+	</div>
+</div>
+			<!--主要左邊欄位END-->
+
+			<!--主要右邊欄位-->
+			<div class="middle_2_info">
+				<div class="middle_2_info_1" id="loginBreadcrumbs"></div>
+				<div class="middle_2_info_2_1"> 若您未進行網頁切換，將會於<span id="countDownSecond" style="color:red;"></span>後登出</div>
+				<div class="middle_2_info_2_1"><div class="btn_7" style="margin-top: 0px"><a href="javascript:pisSetTime();" style="color: aliceblue;margin-top: -5px;" title="延長時間">延長時間</a></div></div>
+				<div class="middle_2_info_2_1"><div class="btn_7" style="margin-top: 0px"><a href="/tps/sso/logout" style="color: aliceblue;margin-top: -5px;" title="登出系統">登出系統</a></div></div>
+
+			</div>
+			<div id="content">
+
+
+
+
+<script type="text/javascript" src='/tps/js/jquery-3.3.1.min.js'></script>
+<script type="text/javascript" src='/tps/js/jquery-ui.min.js'></script>
+<script type="text/javascript" src='/tps/js/commonDlg.js'></script>
+<script type="text/javascript" src="/tps/js/purify.min.js"></script>
+
+
+
+<script type="text/javascript" src="/ccs/dist/geps3-commons.bundle.js?1754523882679"></script>
+<script>
+
+if (typeof ("".replaceAll) == "undefined") {
+	String.prototype.replaceAll = function(s1, s2) {
+		return this.replace(new RegExp(s1, "gm"), s2);
+	};
+}
+
+$(document).ready(function() {
+	Geps3.CommonConfig.context = '/tps'; //載入共用元件context path
+	document.cookie = 'SameSite=strict;secure;httpOnly'; // 設定cookie-SameSite參數為strict; cookie僅能由https傳送; cookie僅能透過伺服器存取
+});
+</script>
+
+
+<div style="color: red;">
+
+</div>
+<div class="middle_1_cen_big R">
+
+
+
+<div class="middle_1_cen_big_full">
+				<div class="title_1">
+				<!--系統錯誤訊息 -->
+				系統錯誤訊息
+				</div>
+
+				<!--表格開始-->
+				<table class="g_tb_01">
+
+					<tbody><tr class="tb_s07">
+						<td headers="tb_02" class="tbg_1 atsp">
+						<!--錯誤代碼 -->
+						錯誤代碼
+						</td>
+
+
+								<td headers="tb_02" class="tbg_2">
+								403
+								<div style="display:none">Invalid response code</div>
+							</td>
+
+
+
+					</tr>
+					<tr class="tb_s07">
+						<td headers="tb_02" class="tbg_1 atsp">
+						<!--錯誤訊息 -->
+							錯誤訊息
+						</td>
+
+
+								<td headers="tb_02" class="tbg_2">
+									使用者無權限操作此功能
+									<div style="display:none">Invalid response code</div>
+								</td>
+
+
+
+					</tr>
+				</tbody></table>
+				<!--表格結束-->
+			</div>
+</div>
+			</div>
+			<!--下方找標案欄位-->
+			<!--左邊內容結束-->
+
+		</div>
+	</div>
+
+
+	<!--footer-->
+
+
+
+
+
+
+<!--footer-->
+<div class="footer">
+	<div class="footer_a_cen">
+		<div class="footer_a">
+			<img src="/tps/images/minor_logo.png" alt="行政院工程委員會商標圖">
+			<a rel="noopener noreferrer" target="_blank" href="https://accessibility.moda.gov.tw/Applications/Detail?category=20230224201311" title="無障礙網站(另開視窗)">
+		<img src="/pis/images/ap2.0.png" border="0" width="88" height="31" alt="通過A無障礙網頁檢測"></a>
+		</div>
+		<div class="footer_a">
+			<div class="col-lg-4"><p>免費系統客服電話：0800-080-512</p></div>
+			<div class="col-lg-4"><p>系統客服傳真：02-33229691</p></div>
+			<div class="col-lg-4"><p>緊急聯絡電話：(07)2280795</p></div>
+			<div class="col-lg-4"><p>工程會電話：(02)87897500</p></div>
+			<div class="col-lg-4"><p>工程會地址：110207臺北市信義區松仁路3號9樓</p></div>
+			<div class="col-lg-4"><p>採購申訴審議委員會電話：(02)87897530</p></div>
+			<div class="col-lg-4"><p>中央採購稽核小組電話：(02)87897548</p></div>
+			<div class="col-lg-4"><p>傳真：(02)87897554</p></div>
+			<div class="col-lg-4"><p>政府電子採購網 版權所有 © 2021</p></div>
+			<div class="col-lg-4"><p>歡迎本區第 <span><strong class="counterValue"></strong></span> 位訪客(至098/12/31累計76003935人次)</p></div>
+		</div>
+		<div style="height: 30px"></div>
+		<div class="footer_a">
+
+
+
+					<div class="col-lg-2">
+						<p><img src="/tps/images/link.png" alt=""><a  href="/pis/pia/client/mail" style="color: #fff" title="聯絡我們">聯絡我們</a></p>
+					</div>
+				<div class="col-lg-2">
+					<p><img src="/tps/images/link.png" alt=""><a  href="/pis/prac/declarationClient/right" style="color: #fff" title="著作權聲明">著作權聲明</a></p>
+				</div>
+					<div class="col-lg-2">
+					<p><img src="/tps/images/link.png" alt=""><a  href="/pis/prac/declarationClient/accessibility" style="color: #fff" title="無障礙聲明">無障礙聲明</a></p>
+				</div>
+					<div class="col-lg-2">
+					<p><img src="/tps/images/link.png" alt=""><a  href="/pis/prac/declarationClient/security" style="color: #fff" title="安全保護聲明">安全保護聲明</a></p>
+				</div>
+					<div class="col-lg-2">
+					<p><img src="/tps/images/link.png" alt=""><a  href="/pis/prac/declarationClient/private" style="color: #fff" title="個人隱私聲明">個人隱私聲明</a></p>
+				</div>
+					<div class="col-lg-2">
+					<p><img src="/tps/images/link.png" alt=""><a  href="/osm/public/sysDownRcd" style="color: #fff" title="停機紀錄">停機紀錄</a></p>
+				</div>
+
+
+	    </div>
+	</div>
+	<div class="footer_b">
+		<div class="footer_a_cen">
+			<div class="col-lg-6"><div class="footer_text_a">支援瀏覽器版本為Edge，及Firefox及Chrome瀏覽器解析度1280 X 960</div></div>
+			<div class="col-lg-6"><div class="footer_text_b">台灣時間為<span id="nowTimeSpan"></span></div></div>
+		</div>
+    </div>
+</div>
+<!--footerEND-->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		generateNowTime();
+		setInterval("generateNowTime()", 10000);
+
+		var isT5Env = '';
+		if(isT5Env != 'Y') {
+			getCounterValue();
+		}
+
+	});
+
+	function generateNowTime() {
+		var time = new Date() ;
+		var nowstr = time.getHours() + '點' + time.getMinutes() + '分';
+		$("#nowTimeSpan").text(nowstr);
+	}
+
+	function getCounterValue(){
+		jQuery.ajax({
+					url: "/pis/pia/client/counter/counterValue?refresh=N",
+					type: "POST",
+					dataType: "html",
+					timeout:30000,
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+						if (textStatus == 'timeout'){
+							// timeout
+							jQuery('strong.counterValue').text('');
+						}else{
+							// error
+							jQuery('strong.counterValue').text('error');
+						}
+						ajaxEvent = false;
+					},
+					beforeSend: function(){
+						// busy
+						ajaxEvent = true;
+					},
+					complete: function(){
+						ajaxEvent = false;
+					},
+					success: function(doc){
+						if(doc.toLowerCase){
+							if(doc.toLowerCase().indexOf("</body>")!=-1){
+								window.location.href="/pis";
+							}else{
+								jQuery('strong.counterValue').text(doc);
+							}
+						}
+					}
+				});
+	}
+
+	function refreshNewCount(){
+
+		jQuery.ajax({
+					url: "/pis/pia/client/counter/refreshNewCount?refresh=Y",
+					type: "POST",
+					dataType: "html",
+					timeout:30000,
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+						if (textStatus == 'timeout'){
+							// timeout
+							jQuery('strong.counterValue').text('');
+						}else{
+							// error
+							jQuery('strong.counterValue').text('error');
+						}
+						ajaxEvent = false;
+					},
+					beforeSend: function(){
+						// busy
+						ajaxEvent = true;
+					},
+					complete: function(){
+						ajaxEvent = false;
+					},
+					success: function(doc){
+						ajaxEvent = false;
+					}
+				});
+	}
+
+
+</script>
+
+
+
+	<!--footerEND-->
+
+<script>
+
+	$(function(){
+	setLoginBreadTitle();
+		});
+
+	//設定TITLE
+	function setLoginBreadTitle() {
+
+		//取得 func path
+		var funcUrl = "/tps/menu/readFuncPath";
+		$.ajax({
+			url : funcUrl,
+			type : "GET",
+		}).done(function(content) {
+			if(!Array.isArray(content)) {
+				return;
+			}
+
+			if(content.length>=2){
+				console.log(content[content.length-2]+content[content.length-1]);
+
+				document.title = '政府電子採購網-'+content[content.length-2].trim() + content[content.length-1].trim();
+
+			}
+
+		}).fail(function(jqXHR, textStatus) {
+			console.error('readFuncPath error ' + textStatus);
+		});
+	}
+</script>
+
+</body>
+</html>

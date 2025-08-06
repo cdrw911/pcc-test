@@ -1,0 +1,89 @@
+{
+  "scraper_config": {
+    "url": "https://web.pcc.gov.tw/tps/pss/tender.do?searchMode=common&searchType=basic",
+    "headers": {
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+      "Cache-Control": "max-age=0",
+      "Connection": "keep-alive",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Host": "web.pcc.gov.tw",
+      "Origin": "https://web.pcc.gov.tw",
+      "Referer": "https://web.pcc.gov.tw/tps/pss/tender.do?searchMode=common&searchType=basic",
+      "Sec-Fetch-Dest": "document",
+      "Sec-Fetch-Mode": "navigate",
+      "Sec-Fetch-Site": "same-origin",
+      "Sec-Fetch-User": "?1",
+      "Upgrade-Insecure-Requests": "1",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    },
+    "selectors": {
+      "table": "table#list_list_content_table",
+      "row": "tr:not(.list_head)",
+      "cols": {
+        "org_name": "td:nth-of-type(2)",
+        "tender_case_no_link": "td:nth-of-type(3) a",
+        "tender_name_cell": "td:nth-of-type(3)",
+        "tender_status": "td:nth-of-type(4)",
+        "tender_way": "td:nth-of-type(5)",
+        "procurement_nature": "td:nth-of-type(6)",
+        "announce_date": "td:nth-of-type(7)",
+        "deadline": "td:nth-of-type(8)",
+        "budget": "td:nth-of-type(9)"
+      }
+    }
+  },
+  "filter_rules": {
+    "level_1_absolute_reject_keywords": [
+      "維修", "保養", "保固", "修繕", "養護", "設備採購", "器材採購",
+      "電腦採購", "硬體採購", "伺服器", "工作站", "網路設備", "交換機",
+      "投影機", "顯示器", "電視牆", "設備租賃", "器材租賃", "場地租借",
+      "車輛租賃", "純租賃", "軟體開發", "系統開發", "系統建置", "網站建置",
+      "資料庫建置", "APP開發", "程式設計", "主機代管", "雲端服務", "資安",
+      "印刷", "手冊", "摺頁", "書籍", "書刊", "型錄", "海報", "大圖輸出",
+      "帆布", "布條", "獎盃", "獎牌", "紀念品", "贈品", "禮品", "文創商品",
+      "周邊商品", "服裝", "制服", "研究計畫", "學術研討", "調查案",
+      "民意調查", "數據分析", "法律顧問", "會計服務", "財務審計", "顧問案",
+      "人力派遣", "駐點服務", "人員駐點", "保全", "警衛", "清潔服務",
+      "餐飲", "膳食", "交通車", "工程", "施工", "建築", "營造", "土木",
+      "監造", "裝修", "室內設計", "翻譯", "口譯", "筆譯", "聽打",
+      "展覽規劃", "活動規劃", "公關活動"
+    ],
+    "level_2_contextual_rules": [
+      {"keyword": "影片", "adjacent_rejects": ["競賽", "比賽", "影展", "徵件", "教學", "課程", "工作坊", "播放器", "播放設備"]},
+      {"keyword": "影音", "adjacent_rejects": ["平台建置", "系統開發", "教學", "課程", "競賽"]},
+      {"keyword": "紀錄片", "adjacent_rejects": ["比賽", "影展", "徵件", "座談"]},
+      {"keyword": "紀實", "adjacent_rejects": ["攝影展", "比賽"]},
+      {"keyword": "微電影", "adjacent_rejects": ["比賽", "競賽", "徵選", "徵件", "影展", "工作坊"]},
+      {"keyword": "形象片", "adjacent_rejects": ["競賽", "比賽"]},
+      {"keyword": "宣導片", "adjacent_rejects": ["競賽", "比賽"]},
+      {"keyword": "廣告", "adjacent_rejects": ["投放", "代理", "行銷", "採購", "託播"]},
+      {"keyword": "CF", "adjacent_rejects": ["比賽", "競賽"]},
+      {"keyword": "動畫", "adjacent_rejects": ["軟體", "教學", "課程", "工作坊", "比賽", "競賽", "營隊"]},
+      {"keyword": "懶人包", "adjacent_rejects": ["設計", "製作"]},
+      {"keyword": "短劇", "adjacent_rejects": ["比賽", "教學", "工作坊"]},
+      {"keyword": "戲劇", "adjacent_rejects": ["比賽", "教學", "工作坊", "營隊"]},
+      {"keyword": "節目", "adjacent_rejects": ["主持", "規劃", "採購", "冠名"]},
+      {"keyword": "攝影", "adjacent_rejects": ["機", "器材", "設備", "鏡頭", "配件", "比賽", "展", "學會", "課程", "工作坊", "棚"]},
+      {"keyword": "拍攝", "adjacent_rejects": ["器材", "設備", "場地", "燈光", "課程", "教學"]},
+      {"keyword": "錄影", "adjacent_rejects": ["帶", "機", "設備", "器材", "系統"]},
+      {"keyword": "錄製", "adjacent_rejects": ["帶", "設備", "器材", "系統"]},
+      {"keyword": "剪輯", "adjacent_rejects": ["軟體", "教學", "課程", "工作坊", "室", "系統"]},
+      {"keyword": "後製", "adjacent_rejects": ["軟體", "教學", "課程", "工作坊", "系統"]},
+      {"keyword": "空拍", "adjacent_rejects": ["機", "設備", "保險", "證照", "課程", "教學"]},
+      {"keyword": "航拍", "adjacent_rejects": ["機", "設備", "保險", "證照", "課程", "教學"]},
+      {"keyword": "配音", "adjacent_rejects": ["課程", "教學", "工作坊"]},
+      {"keyword": "配樂", "adjacent_rejects": ["課程", "教學", "軟體"]},
+      {"keyword": "企劃", "adjacent_rejects": ["書", "案撰寫", "顧問"]},
+      {"keyword": "製作", "adjacent_rejects": ["物", "道具", "報告書"]},
+      {"keyword": "直播", "adjacent_rejects": ["平台建置", "設備採購", "系統", "小編"]},
+      {"keyword": "行銷", "adjacent_rejects": ["顧問", "規劃", "廣告投放", "關鍵字廣告", "社群經營", "公關"]},
+      {"keyword": "社群", "adjacent_rejects": ["經營", "代操", "管理", "小編", "廣告投放"]},
+      {"keyword": "課程", "adjacent_rejects": ["規劃", "設計", "顧問", "講師", "辦理", "開設"]},
+      {"keyword": "教學", "adjacent_rejects": ["規劃", "設計", "顧問", "講師", "辦理", "開設"]},
+      {"keyword": "多媒體", "adjacent_rejects": ["互動裝置", "展場設計", "網頁設計", "系統建置", "光碟壓製", "主機"]},
+      {"keyword": "數位內容", "adjacent_rejects": ["平台", "系統", "建置"]}
+    ]
+  }
+}
