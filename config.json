@@ -17,21 +17,6 @@
       "Sec-Fetch-User": "?1",
       "Upgrade-Insecure-Requests": "1",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
-    },
-    "selectors": {
-      "table": "table#list_list_content_table",
-      "row": "tr:not(.list_head)",
-      "cols": {
-        "org_name": "td:nth-of-type(2)",
-        "tender_case_no_link": "td:nth-of-type(3) a",
-        "tender_name_cell": "td:nth-of-type(3)",
-        "tender_status": "td:nth-of-type(4)",
-        "tender_way": "td:nth-of-type(5)",
-        "procurement_nature": "td:nth-of-type(6)",
-        "announce_date": "td:nth-of-type(7)",
-        "deadline": "td:nth-of-type(8)",
-        "budget": "td:nth-of-type(9)"
-      }
     }
   },
   "filter_rules": {

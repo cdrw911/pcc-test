@@ -60,19 +60,19 @@ def scrape_tenders(scraper_config):
     Scrapes tender information by first visiting the page to get cookies,
     then posting the search form.
     """
-    logging.info("Starting to scrape tenders with 2-step approach...")
+    logging.info("Starting to scrape tenders with 2-step requests approach...")
 
     session = requests.Session()
     session.headers.update(scraper_config.get("headers", {}))
-    target_url = scraper_config.get("url")
+    # The POST endpoint from the spec
+    target_url = "https://web.pcc.gov.tw/tps/pss/tender.do?searchMode=common&searchType=basic"
 
     try:
-        # Step 1: Visit the page to get initial cookies (like a real user)
+        # Step 1: Visit the page to get initial cookies
         logging.info(f"Step 1: Making a GET request to {target_url} to establish session.")
         session.get(target_url, timeout=20)
         logging.info("Session established, cookies should be set.")
 
-        # Add a small, human-like delay
         time.sleep(random.uniform(1.5, 3.5))
 
         # Step 2: Post the form with the acquired session cookies
@@ -100,41 +100,41 @@ def scrape_tenders(scraper_config):
     logging.info(f"Response received with status code: {response.status_code}")
 
     # --- HTML Parsing ---
+    # The selector for the table on the POST result page
+    table_selector = "table#list_list_content_table"
     soup = BeautifulSoup(response.text, 'lxml')
-    selectors = scraper_config.get("selectors", {})
 
-    table = soup.select_one(selectors.get("table"))
+    table = soup.select_one(table_selector)
     if not table:
         logging.warning("Could not find the results table on the page.")
         debug_path = Path("debug_page.html")
         debug_path.write_text(response.text, encoding='utf-8')
-        logging.warning(f"Saved page content to {debug_path} for debugging.")
+        logging.warning(f"Saved page content to {debug_path} for debugging. This is expected if the IP is blocked.")
         return []
 
     raw_tenders = []
-    rows = table.select(selectors.get("row", "tr"))
+    rows = table.select("tr:not(.list_head)")
     logging.info(f"Found {len(rows)} tender rows in the table.")
 
     for row in rows:
         try:
-            cols = selectors.get("cols", {})
-            link_tag = row.select_one(cols.get("tender_case_no_link"))
+            link_tag = row.select_one("td:nth-of-type(3) a")
             if not link_tag: continue
 
-            name_cell_text = row.select_one(cols.get("tender_name_cell")).text.strip()
+            name_cell_text = row.select_one("td:nth-of-type(3)").text.strip()
             case_no_text = link_tag.text.strip()
             tender_name = name_cell_text.replace(case_no_text, '').strip()
 
             tender_data = {
-                "機關名稱": row.select_one(cols.get("org_name")).text.strip(),
+                "機關名稱": row.select_one("td:nth-of-type(2)").text.strip(),
                 "標案案號": case_no_text,
                 "標案名稱": tender_name,
-                "傳輸次數": row.select_one(cols.get("tender_status")).text.strip(),
-                "招標方式": row.select_one(cols.get("tender_way")).text.strip(),
-                "採購性質": row.select_one(cols.get("procurement_nature")).text.strip(),
-                "公告日期": row.select_one(cols.get("announce_date")).text.strip(),
-                "截止投標": row.select_one(cols.get("deadline")).text.strip(),
-                "預算金額": row.select_one(cols.get("budget")).text.strip().replace(',', ''),
+                "傳輸次數": row.select_one("td:nth-of-type(4)").text.strip(),
+                "招標方式": row.select_one("td:nth-of-type(5)").text.strip(),
+                "採購性質": row.select_one("td:nth-of-type(6)").text.strip(),
+                "公告日期": row.select_one("td:nth-of-type(7)").text.strip(),
+                "截止投標": row.select_one("td:nth-of-type(8)").text.strip(),
+                "預算金額": row.select_one("td:nth-of-type(9)").text.strip().replace(',', ''),
                 "標案連結": "https://web.pcc.gov.tw" + link_tag['href']
             }
             raw_tenders.append(tender_data)
